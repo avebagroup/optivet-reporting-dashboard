@@ -1,0 +1,12 @@
+{
+  "name": "optivet-reporting-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Read-only GoHighLevel reporting dashboard for OptiVet Solutions. All API calls run server-side.",
+  "type": "module",
+  "engines": { "node": ">=18.17" },
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check lib/ghl.js && node --check lib/report.js && node --check lib/fields.js && node --check lib/cache.js && node --check lib/tz.js && node --check lib/env.js"
+  }
+}

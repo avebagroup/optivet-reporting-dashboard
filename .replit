@@ -1,0 +1,5 @@
+run = "npm start"
+entrypoint = "server.js"
+
+[deployment]
+run = ["sh", "-c", "npm start"]

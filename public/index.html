@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OptiVet Reporting</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <div class="brand">
+      <h1>OptiVet Reporting</h1>
+      <div class="sub" id="account-line">GoHighLevel · read-only</div>
+    </div>
+    <div class="refresh-box">
+      <div class="refreshed" id="refreshed">Last refreshed: —</div>
+      <button class="btn primary" id="refresh-btn" type="button">Refresh</button>
+    </div>
+  </header>
+
+  <section class="filters" aria-label="Date range">
+    <div class="presets" role="group" aria-label="Presets">
+      <button class="chip" data-preset="today" type="button">Today</button>
+      <button class="chip" data-preset="yesterday" type="button">Yesterday</button>
+      <button class="chip" data-preset="last7" type="button">Last 7 days</button>
+      <button class="chip" data-preset="month" type="button">This month</button>
+    </div>
+    <form class="custom" id="custom-form">
+      <label>From <input type="date" id="from" required></label>
+      <label>To <input type="date" id="to" required></label>
+      <button class="btn" type="submit">Apply</button>
+    </form>
+    <div class="range-label" id="range-label"></div>
+  </section>
+
+  <div class="banner error" id="error" hidden role="alert"></div>
+  <div class="banner warn" id="warnings" hidden></div>
+
+  <main id="main" class="main">
+    <section class="kpis" id="kpis" aria-label="Key numbers"></section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Daily trend</h2>
+        <div class="card-tools">
+          <span class="muted" id="trend-sub"></span>
+          <button class="btn small" id="trend-toggle" type="button" aria-pressed="false">Table view</button>
+        </div>
+      </div>
+      <div id="trend-charts" class="multiples"></div>
+      <div id="trend-table" class="table-wrap" hidden></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Activity per team member</h2>
+        <span class="muted" id="team-sub"></span>
+      </div>
+      <div id="team-table" class="table-wrap"></div>
+      <p class="footnote" id="team-note"></p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Products requested</h2>
+        <span class="muted" id="products-sub"></span>
+      </div>
+      <div id="products-chart"></div>
+      <p class="footnote" id="products-note"></p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Devices by VA facility and product</h2>
+        <span class="muted" id="facility-sub"></span>
+      </div>
+      <div class="note" id="facility-note"></div>
+      <div id="facility-table" class="table-wrap"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Data quality: leads missing VA location or state</h2>
+        <div class="card-tools">
+          <label class="check"><input type="checkbox" id="dq-hide-cc"> Hide Community Care leads (no VA facility expected)</label>
+          <a class="btn small" id="dq-csv" href="#" download>Export CSV</a>
+        </div>
+      </div>
+      <div class="note" id="dq-sub"></div>
+      <div id="dq-table" class="table-wrap"></div>
+    </section>
+
+    <section class="card meta">
+      <h2>How these numbers are built</h2>
+      <div id="meta"></div>
+    </section>
+  </main>
+
+  <div class="tooltip" id="tooltip" hidden></div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
